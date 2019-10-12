@@ -8,16 +8,14 @@ import {
   Text,
   TouchableOpacity,
   View,
-  Dimensions,
+  Dimensions
 } from 'react-native';
 
 export default function LeagueScreen() {
   return (
     <>
       <View>
-        <Text style={styles.textTitle}>
-          Title
-        </Text>
+        <Text style={styles.textTitle}>Title</Text>
       </View>
       <View>
         <Text>teamname</Text>
@@ -36,11 +34,16 @@ export default function LeagueScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingTop: 15,
-    backgroundColor: '#fff',
+    // paddingTop: 15,
+    backgroundColor: '#fff'
   },
-  titleText: { position: 'absolute', top: 125, fontSize: 15, color: 'rgba(192, 169, 231, 1)', },
+  titleText: {
+    position: 'absolute',
+    // top: 125,
+    fontSize: 15,
+    color: 'rgba(192, 169, 231, 1)'
+  },
   subtitleText: {},
   table: {},
-  row: {},
+  row: {}
 });

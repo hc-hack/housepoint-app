@@ -8,26 +8,21 @@ import {
   Text,
   TouchableOpacity,
   View,
-  Dimensions,
+  Dimensions
 } from 'react-native';
-
 
 export default function AchievementsScreen() {
   return (
     <>
-      <View><Text>title</Text></View>
-      <View><Text>teamname</Text></View>
       <View>
-        <Text>player1 500</Text>
-        <Text>player2 499</Text>
-        <Text>player3 332</Text>
-        <Text>player4 322</Text>
-        <Text>player5 100</Text>
+        <Text Style={styles.titleInfoText}>Your Acheivements</Text>
       </View>
     </>
   );
 }
 
+const styles = StyleSheet.create({});
+
 AchievementsScreen.navigationOptions = {
-  title: 'app.json',
+  header: 'null'
 };
