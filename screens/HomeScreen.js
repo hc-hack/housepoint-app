@@ -32,7 +32,7 @@ export default function HomeScreen() {
         <View style={styles.getStartedContainer}>
           <DevelopmentModeNotice />
 
-          <Text style={styles.getStartedText}>Get started by opening</Text>
+          <Text style={styles.getStartedText}>healthcare hackathon</Text>
 
           <View
             style={[styles.codeHighlightContainer, styles.homeScreenFilename]}>
@@ -47,7 +47,7 @@ export default function HomeScreen() {
         <View style={styles.helpContainer}>
           <TouchableOpacity onPress={handleHelpPress} style={styles.helpLink}>
             <Text style={styles.helpLinkText}>
-              Help, it didn’t automatically reload!
+              Put tasks here
             </Text>
           </TouchableOpacity>
         </View>
@@ -55,13 +55,13 @@ export default function HomeScreen() {
 
       <View style={styles.tabBarInfoContainer}>
         <Text style={styles.tabBarInfoText}>
-          This is a tab bar. You can edit it in:
+          Edit this to receive data from league
         </Text>
 
         <View
           style={[styles.codeHighlightContainer, styles.navigationFilename]}>
           <MonoText style={styles.codeHighlightText}>
-            navigation/MainTabNavigator.js
+            Ex. 7th place
           </MonoText>
         </View>
       </View>
@@ -111,7 +111,7 @@ function handleHelpPress() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#87FBFB',
   },
   developmentModeText: {
     marginBottom: 20,
