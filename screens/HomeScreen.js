@@ -9,66 +9,69 @@ import {
   TouchableOpacity,
   View,
   Dimensions,
+  StatusBar
 } from 'react-native';
 
 import { MonoText } from '../components/StyledText';
-/* will woz here*/
-export default function HomeScreen() {
+
+
+const userData = {
+  steps: 76,
+  goals: 100,
+  tasks: [
+    {
+      title: "Take the bins out",
+      points: 10
+    },
+    {
+      title: "Cook a healthy meal",
+      points: 15
+    },
+    {
+      title: "Complete 5000 steps",
+      points: 30
+    },
+    {
+      title: "Complete 5000 steps",
+      points: 30
+    }
+  ],
+  "placement": 1,
+  "league": "house 42"
+};
+
+
+const HomeScreen = () => {
   return (
-
     <>
-      <View style={styles.logoContainer}>
-        <Text style={styles.logoInfoText}>
-          Placeholder
-        </Text>
-      </View>
-
       <View style={styles.pointDashboardContainer}>
-        
         <Text style={styles.pointDashboardInfoText}>
-          76
+          {userData.steps}
         </Text>
-        <Text style={{position: 'absolute', top: 125, fontSize: 15, color: 'rgba(192, 169, 231, 1)'}}>
+        <Text style={{ position: 'absolute', top: 125, fontSize: 15, color: 'rgba(192, 169, 231, 1)' }}>
           STEPS
         </Text>
-
-        <Text style={{position: 'absolute', top: 140, fontSize: 30, color: 'rgba(80,158,140,1)'}}>
-          100
+        <Text style={{ position: 'absolute', top: 140, fontSize: 30, color: 'rgba(80,158,140,1)' }}>
+          {user_data["goals"]}
         </Text>
-        <Text style={{position: 'absolute', top: 180, fontSize: 15, color: 'rgba(80,158,140,1)'}}>
+        <Text style={{ position: 'absolute', top: 180, fontSize: 15, color: 'rgba(80,158,140,1)' }}>
           GOALS
         </Text>
-
         <Image source={require('../assets/images/slider.png')} style={styles.icon} />
       </View>
-
-      <View style={styles.taskContainer}>
-        <Text style={styles.taskInfoText}>
-          task1
-        </Text>
-      </View>
-
-      <View style={styles.taskContainer}>
-        <Text style={styles.taskInfoText}>
-          task2
-        </Text>
-      </View>
-
-      <View style={styles.taskContainer}>
-        <Text style={styles.taskInfoText}>
-          task3
-        </Text>
-      </View>
-
+      {userData.tasks.map((task) => (
+        <View style={styles.taskContainer}>
+          <Text style={styles.taskInfoText}>
+            {task.title}
+          </Text>
+        </View>
+      ))}
       <View style={styles.tabBarInfoContainer}>
         <Text style={styles.tabBarInfoText}>
-          [Edit this to receive data from league]
+          {user_data["placement"]} in {user_data["league"]}
         </Text>
       </View>
-
-
     </>
-
   );
 }
 
@@ -79,15 +82,13 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#87FBFB',
   },
-    logoContainer: {
-    position: 'absolute',
-    bottom: 0,
-    left: 0,
-    right: 0,
-    alignItems: 'center',
-  },
+
+
+  // may use this style later
+
   logoInfoText: {
-    fontSize: 60,
+    fontSize: 40,
+    top: -30,
     color: 'rgba(0,0,0,1)',
     textAlign: 'center',
   },
@@ -119,6 +120,7 @@ const styles = StyleSheet.create({
   taskContainer: {
     position: 'relative',
     top: 250,
+    bottom: 50,
     left: 0,
     right: 0,
     padding: 30,
@@ -130,7 +132,7 @@ const styles = StyleSheet.create({
   },
   taskInfoText: {
     fontSize: 20,
-    color: 'rgba(96,100,109, 1)',
+    color: 'rgba(0,0,0,1)',
     textAlign: 'center',
   },
   tabBarInfoContainer: {
@@ -150,3 +152,5 @@ const styles = StyleSheet.create({
 
 
 });
+
+export default HomeScreen;

@@ -5,7 +5,7 @@ import { createStackNavigator, createBottomTabNavigator } from 'react-navigation
 import TabBarIcon from '../components/TabBarIcon';
 import HomeScreen from '../screens/HomeScreen';
 import LeagueScreen from '../screens/LeagueScreen';
-import SettingsScreen from '../screens/SettingsScreen';
+import AchievementsScreen from '../screens/AchievementsScreen';
 
 const config = Platform.select({
   web: { headerMode: 'screen' },
@@ -51,26 +51,26 @@ LeagueStack.navigationOptions = {
 
 LeagueStack.path = '';
 
-const SettingsStack = createStackNavigator(
+const AchievementsStack = createStackNavigator(
   {
-    Settings: SettingsScreen,
+    Achievements: AchievementsScreen,
   },
   config
 );
 
-SettingsStack.navigationOptions = {
+AchievementsStack.navigationOptions = {
   tabBarLabel: 'Acheivements',
   tabBarIcon: ({ focused }) => (
     <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'ios-options' : 'md-options'} />
   ),
 };
 
-SettingsStack.path = '';
+AchievementsStack.path = '';
 
 const tabNavigator = createBottomTabNavigator({
   HomeStack,
   LeagueStack,
-  SettingsStack,
+  AchievementsStack,
 });
 
 tabNavigator.path = '';

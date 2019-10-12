@@ -14,11 +14,21 @@ import {
 export default function LeagueScreen() {
   return (
     <>
-    <View>
-      <Text>
-        lEAGUE
-      </Text>
-    </View>
+      <View>
+        <Text style={styles.textTitle}>
+          Title
+        </Text>
+      </View>
+      <View>
+        <Text>teamname</Text>
+      </View>
+      <View>
+        <Text>player1 500</Text>
+        <Text>player2 499</Text>
+        <Text>player3 332</Text>
+        <Text>player4 322</Text>
+        <Text>player5 100</Text>
+      </View>
     </>
   );
 }
@@ -29,4 +39,8 @@ const styles = StyleSheet.create({
     paddingTop: 15,
     backgroundColor: '#fff',
   },
+  titleText: { position: 'absolute', top: 125, fontSize: 15, color: 'rgba(192, 169, 231, 1)', },
+  subtitleText: {},
+  table: {},
+  row: {},
 });
