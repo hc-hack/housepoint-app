@@ -63,6 +63,7 @@ const styles = StyleSheet.create({
   },
   taskContainer: {
     position: 'relative',
+    top: 250,
     left: 0,
     right: 0,
 
