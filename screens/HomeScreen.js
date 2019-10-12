@@ -17,13 +17,28 @@ export default function HomeScreen() {
   return (
 
     <>
-      <View style={styles.pointDashboardContainer} onLayout={(event) => {
-        var { x, y, width, height } = event.nativeEvent.layout;
-      }}>
+      <View style={styles.logoContainer}>
+        <Text style={styles.logoInfoText}>
+          Placeholder
+        </Text>
+      </View>
 
+      <View style={styles.pointDashboardContainer}>
+        
         <Text style={styles.pointDashboardInfoText}>
           76
         </Text>
+        <Text style={{position: 'absolute', top: 125, fontSize: 15, color: 'rgba(192, 169, 231, 1)'}}>
+          STEPS
+        </Text>
+
+        <Text style={{position: 'absolute', top: 140, fontSize: 30, color: 'rgba(80,158,140,1)'}}>
+          100
+        </Text>
+        <Text style={{position: 'absolute', top: 180, fontSize: 15, color: 'rgba(80,158,140,1)'}}>
+          GOALS
+        </Text>
+
         <Image source={require('../assets/images/slider.png')} style={styles.icon} />
       </View>
 
@@ -31,8 +46,8 @@ export default function HomeScreen() {
         <Text style={styles.taskInfoText}>
           task1
         </Text>
-
       </View>
+
       <View style={styles.taskContainer}>
         <Text style={styles.taskInfoText}>
           task2
@@ -64,6 +79,18 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#87FBFB',
   },
+    logoContainer: {
+    position: 'absolute',
+    bottom: 0,
+    left: 0,
+    right: 0,
+    alignItems: 'center',
+  },
+  logoInfoText: {
+    fontSize: 60,
+    color: 'rgba(0,0,0,1)',
+    textAlign: 'center',
+  },
   icon: {
     position: "absolute",
     top: (35),
@@ -84,20 +111,22 @@ const styles = StyleSheet.create({
     paddingVertical: 100,
   },
   pointDashboardInfoText: {
-    fontSize: 60,
-    color: 'rgba(96,100,109, 1)',
-    textAlign: 'center',
+    fontSize: 50,
+    color: 'rgba(192, 169, 231, 1)',
+    position: "absolute",
+    top: 60,
   },
   taskContainer: {
     position: 'relative',
     top: 250,
     left: 0,
     right: 0,
-    padding: 20,
+    padding: 30,
     margin: 20,
     alignItems: 'center',
-    backgroundColor: 'rgba(170,170,170,100)',
+    backgroundColor: 'rgba(80,158,140,1)',
     paddingVertical: 10,
+    borderRadius: 10,
   },
   taskInfoText: {
     fontSize: 20,
@@ -110,7 +139,7 @@ const styles = StyleSheet.create({
     left: 0,
     right: 0,
     alignItems: 'center',
-    backgroundColor: '#fbfbfb',
+    backgroundColor: 'rgba(192,169,231,1)',
     paddingVertical: 20,
   },
   tabBarInfoText: {

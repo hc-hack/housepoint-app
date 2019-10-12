@@ -4,7 +4,7 @@ import { createStackNavigator, createBottomTabNavigator } from 'react-navigation
 
 import TabBarIcon from '../components/TabBarIcon';
 import HomeScreen from '../screens/HomeScreen';
-import LeagueScreen from '../screens/LeagueScreen';
+import LinksScreen from '../screens/LinksScreen';
 import SettingsScreen from '../screens/SettingsScreen';
 
 const config = Platform.select({
@@ -35,21 +35,21 @@ HomeStack.navigationOptions = {
 
 HomeStack.path = '';
 
-const LeagueStack = createStackNavigator(
+const LinksStack = createStackNavigator(
   {
-    League: LeagueScreen,
+    Links: LinksScreen,
   },
   config
 );
 
-LeagueStack.navigationOptions = {
-  tabBarLabel: 'League',
+LinksStack.navigationOptions = {
+  tabBarLabel: 'Links',
   tabBarIcon: ({ focused }) => (
-    <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'ios-cloud' : 'md-cloud'} />
+    <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'ios-link' : 'md-link'} />
   ),
 };
 
-LeagueStack.path = '';
+LinksStack.path = '';
 
 const SettingsStack = createStackNavigator(
   {
@@ -59,7 +59,7 @@ const SettingsStack = createStackNavigator(
 );
 
 SettingsStack.navigationOptions = {
-  tabBarLabel: 'Acheivements',
+  tabBarLabel: 'Settings',
   tabBarIcon: ({ focused }) => (
     <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'ios-options' : 'md-options'} />
   ),
@@ -69,7 +69,7 @@ SettingsStack.path = '';
 
 const tabNavigator = createBottomTabNavigator({
   HomeStack,
-  LeagueStack,
+  LinksStack,
   SettingsStack,
 });
 
