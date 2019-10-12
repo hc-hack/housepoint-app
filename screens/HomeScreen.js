@@ -8,10 +8,11 @@ import {
   Text,
   TouchableOpacity,
   View,
+  Dimensions,
 } from 'react-native';
 
 import { MonoText } from '../components/StyledText';
-
+/* will woz here*/
 export default function HomeScreen() {
   return (
 
@@ -20,6 +21,7 @@ export default function HomeScreen() {
         <Text style={styles.pointDashboardInfoText}>
           score
         </Text>
+        <Image source={require('@assets\images\slider.png')} alt={'error'} style={styles.icon}> </Image>
       </View>
 
       <View style={styles.taskContainer}>
@@ -40,18 +42,24 @@ export default function HomeScreen() {
   );
 }
 
+let screenHeight = Dimensions.get('window').height;
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#87FBFB',
   },
+  icon: {
+    flex: 1,
+    resizeMode: 'cover', // or 'stretch'
+  },
   pointDashboardContainer: {
     position: 'absolute',
     top: 0,
+    bottom: 0,
     left: 0,
     right: 0,
-
+    margin: 0,
     alignItems: 'center',
     backgroundColor: 'rgba(170,170,170,100)',
     paddingVertical: 100,
