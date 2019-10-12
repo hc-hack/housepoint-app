@@ -17,16 +17,31 @@ export default function HomeScreen() {
   return (
 
     <>
-      <View style={styles.pointDashboardContainer}>
+      <View style={styles.pointDashboardContainer} onLayout={(event) => {
+        var { x, y, width, height } = event.nativeEvent.layout;
+      }}>
+
         <Text style={styles.pointDashboardInfoText}>
-          score
+          76
         </Text>
-        <Image source={require('@assets\images\slider.png')} alt={'error'} style={styles.icon}> </Image>
+        <Image source={require('../assets/images/slider.png')} style={styles.icon} />
       </View>
 
       <View style={styles.taskContainer}>
         <Text style={styles.taskInfoText}>
           task1
+        </Text>
+
+      </View>
+      <View style={styles.taskContainer}>
+        <Text style={styles.taskInfoText}>
+          task2
+        </Text>
+      </View>
+
+      <View style={styles.taskContainer}>
+        <Text style={styles.taskInfoText}>
+          task3
         </Text>
       </View>
 
@@ -42,7 +57,7 @@ export default function HomeScreen() {
   );
 }
 
-let screenHeight = Dimensions.get('window').height;
+let screenWidth = Dimensions.get('window').width;
 
 const styles = StyleSheet.create({
   container: {
@@ -50,8 +65,13 @@ const styles = StyleSheet.create({
     backgroundColor: '#87FBFB',
   },
   icon: {
-    flex: 1,
-    resizeMode: 'cover', // or 'stretch'
+    position: "absolute",
+    top: (35),
+    bottom: (35),
+    left: (screenWidth - 200) / 2,
+    right: (screenWidth - 200) / 2,
+    maxWidth: 200,
+    maxHeight: 200,
   },
   pointDashboardContainer: {
     position: 'absolute',
@@ -61,11 +81,10 @@ const styles = StyleSheet.create({
     right: 0,
     margin: 0,
     alignItems: 'center',
-    backgroundColor: 'rgba(170,170,170,100)',
     paddingVertical: 100,
   },
   pointDashboardInfoText: {
-    fontSize: 17,
+    fontSize: 60,
     color: 'rgba(96,100,109, 1)',
     textAlign: 'center',
   },
@@ -74,7 +93,8 @@ const styles = StyleSheet.create({
     top: 250,
     left: 0,
     right: 0,
-
+    padding: 20,
+    margin: 20,
     alignItems: 'center',
     backgroundColor: 'rgba(170,170,170,100)',
     paddingVertical: 10,
@@ -98,5 +118,6 @@ const styles = StyleSheet.create({
     color: 'rgba(96,100,109, 1)',
     textAlign: 'center',
   },
+
 
 });
