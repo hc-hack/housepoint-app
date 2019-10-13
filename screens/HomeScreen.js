@@ -2,30 +2,33 @@
 import React from 'react';
 import { Image, StyleSheet, Text, View, Dimensions } from 'react-native';
 import TaskPill from '../components/TaskPill';
-import { Header } from 'react-native-elements';
+import { Divider } from 'react-native-elements';
+import { CircularProgress } from 'react-native-svg-circular-progress';
+
 const userData = {
-  steps: 3000,
-  goals: 100,
+  points: 3200,
+  pointGoal: 5000,
   tasks: [
     {
       id: 'id1',
       title: 'Take the bins out',
-      points: 10
+      points: 300
     },
     {
       id: 'id2',
       title: 'Cook a healthy meal',
-      points: 15
+      points: 300
     },
     {
       id: 'id3',
       title: 'Complete 5000 steps',
-      points: 30
+      points: 700
     },
     {
       id: 'id4',
       title: 'Complete 5000 steps',
-      points: 30
+
+      points: 700
     }
   ],
   placement: 1,
@@ -34,54 +37,33 @@ const userData = {
 
 const HomeScreen = () => {
   return (
-    <>
-      {/* <View style={styles.pointDashboardContainer}>
-        <Text style={styles.pointDashboardInfoText}>{userData.steps}</Text>
-        <Text
-          style={{
-            position: 'absolute',
-            top: 125,
-            fontSize: 15,
-            color: 'rgba(192, 169, 231, 1)'
-          }}
+    <View style={styles.homeScreenContainer}>
+      <View style={styles.circularProgress}>
+        <Text style={styles.titleText}>Daily Point Progress</Text>
+        <CircularProgress
+          donutColor="rgb(192, 169, 231)"
+          progressWidth={150}
+          size={350}
+          percentage={(userData.points / userData.pointGoal) * 100}
         >
-          STEPS
-        </Text>
-        <Text
-          style={{
-            position: 'absolute',
-            top: 140,
-            fontSize: 30
-            // color: 'rgba(80,158,140,1)'
-          }}
-        >
-          {userData.goals}
-        </Text>
-        <Text
-          style={{
-            position: 'absolute',
-            top: 180,
-            fontSize: 15,
-            color: 'rgba(80,158,140,1)'
-          }}
-        >
-          GOALS
-        </Text>
-        <Image
-          source={require('../assets/images/slider.png')}
-          style={styles.icon}
-        />
+          <Text style={styles.progressCircleText}>
+            {userData.points} Points
+          </Text>
+          <Text style={styles.progressCircleSubtext}>
+            Point Goal: {userData.pointGoal}
+          </Text>
+        </CircularProgress>
       </View>
-      {userData.tasks.map(task => (
-        <TaskPill key={task.id}></TaskPill>
-      ))}
-      <View style={styles.tabBarInfoContainer}>
-        <Text style={styles.tabBarInfoText}>
-          {userData.placement} in {userData.league}
-        </Text>
-      </View> */}
-      <View></View>
-    </>
+      {/* <Divider style={styles.divider} /> */}
+      <View style={{ ...styles.activitiesContainer }}>
+        {userData.tasks.map(task => (
+          <View style={styles.activityPill} key={task.id}>
+            <Text style={styles.pillText}>{task.title}</Text>
+            <Text style={styles.pillText}>+{task.points} Points</Text>
+          </View>
+        ))}
+      </View>
+    </View>
   );
 };
 
@@ -92,6 +74,64 @@ HomeScreen.navigationOptions = {
 };
 
 const styles = StyleSheet.create({
+  homeScreenContainer: {
+    flex: 1,
+    marginTop: 75
+  },
+  titleText: {
+    fontFamily: 'sans-serif-light',
+    fontSize: 40,
+    marginBottom: 30,
+    color: '#444'
+  },
+  circularProgress: {
+    flex: 1,
+    alignItems: 'center'
+  },
+  progressCircleText: {
+    fontSize: 45,
+    fontFamily: 'sans-serif-light',
+    color: '#444'
+  },
+  progressCircleSubtext: {
+    fontSize: 25,
+    fontFamily: 'sans-serif-light',
+    color: '#444'
+  },
+  activitiesContainer: {
+    flex: 1,
+    alignItems: 'center',
+    marginTop: 50,
+    padding: 20
+  },
+  divider: {
+    marginTop: 100,
+    marginBottom: 10
+  },
+  activityPill: {
+    flex: 2,
+    shadowColor: '#000',
+    shadowOffset: { width: 90, height: 90 },
+    shadowOpacity: 0.3,
+    shadowRadius: 100,
+    elevation: 2,
+    backgroundColor: 'rgb(80, 158, 140);',
+    marginLeft: 50,
+    marginRight: 50,
+    width: '100%',
+    flexDirection: 'row',
+    borderRadius: 20,
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    padding: 20,
+    marginBottom: 10
+  },
+  pillText: {
+    color: '#eee',
+    justifyContent: 'space-between',
+    fontFamily: 'sans-serif-light',
+    fontSize: 17
+  }
   // container: {
   //   // flex: 1,
   //   // backgroundColor: '#87FBFB'
